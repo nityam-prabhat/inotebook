@@ -5,8 +5,10 @@ import { useNavigate } from 'react-router-dom';
 const Home = ({setAlert}) => {
   const navigate = useNavigate();
   useEffect(()=>{
-    if(!localStorage.getItem('token'))
-    navigate('/login');
+    if(!localStorage.getItem('token')){
+      setAlert('danger', 'You\'re not logged in')
+      navigate('/login');
+    }
   // eslint-disable-next-line
   },[])
   return (
